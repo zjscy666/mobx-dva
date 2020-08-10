@@ -27,7 +27,7 @@ class Item extends Component {
             <div>
                 {
                     myStore.testStore.todoList.map((item) => (
-                        <span>{`${item.name}=>${myStore.testStore.num}=>${myStore.globalStore.gTimer}`}</span>
+                        <div key={item.id}>{`${item.name}=>${myStore.testStore.num}=>${myStore.globalStore.gTimer}`}</div>
                     ))
                 }
                 
@@ -52,6 +52,7 @@ class Test4 extends Component {
                 <Item />
                 <button onClick={globalStore.addGTimer}>global store gTimer</button>
             <div><button onClick={testStore.addNum}>test store gTimer</button> num more 10 times: {testStore.getValue}</div>
+            <div><button onClick={testStore.getMoreData}>addTodoList</button></div>
             </div>
         );
     }

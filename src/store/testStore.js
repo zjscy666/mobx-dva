@@ -20,6 +20,23 @@ class TestStore extends CommonStore {
         } finally {
         }
     };
+    getMoreData = () => {
+        try {
+            // 网络请求
+            const length = this.todoList.length;
+            const data = [
+                { id: length + 1, name: length + 1 + '' },
+                { id: length + 2, name: length + 2 + '' },
+            ]
+            runInAction("getMoreData", () => {
+                // this.todoList = [...this.todoList, ...data] || [];
+                this.todoList = this.todoList.concat(data) || [];
+            });
+        } catch (error) {
+            console.error(error);
+        } finally {
+        }
+    }
     @action.bound
     addNum() {
         this.num+=1
